@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  expense-service:
+    image: ${APP_NAME}
+    container_name: expense-service
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - ${PROXY_PORT}:${SERVER_PORT}
+    #command: ["cargo", "run"]
